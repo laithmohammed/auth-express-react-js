@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 const registerRoute = require('./route/register');
 const loginRoute = require('./route/login');
 const logoutRoute = require('./route/logout');
-var app = express();
+const app = express();
+const PORT = process.env.PORT || 5000
 //  Starting MongoDB connection
 mongoose.connect('mongodb://recete:recete1@ds145369.mlab.com:45369/recete', { useNewUrlParser: true });
 //  To Check if the connection works fine or not
@@ -45,6 +46,6 @@ app.get('/', (req, res) => {
   })
 // Starting the server
 if(!module.parent){ // parent is a module => caused the script to be interprete
-    app.listen(3000);
+    app.listen(PORT);
     console.log('server listening on port 3000')
 }
